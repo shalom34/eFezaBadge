@@ -90,7 +90,7 @@ popup.style.display="flex";
            var newImg = new Image();
             newImg.src = data;
             var link =document.createElement("a");
-            link.download="aaa.png";
+            link.download=code.value+".png";
             link.href=data;
             link.click();
         });
@@ -108,7 +108,7 @@ function printPdf() {
   const doc=new jsPDF('p','px','a4');
   const x=(doc.internal.pageSize.width)/6;
         doc.addImage(image,"png",x,15);
-        doc.save("sample.pdf");
+        doc.save(code.value+".pdf");
         });
  
 console.log("clicked");
