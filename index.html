@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <title>Formulaire</title>
+</head>
+<body id="body">
+  <div class="main_container" id="main">
+     <section class="side">
+      <div class="carousel">
+   <img class="carousel-item" src="images/image1.jpg">
+  <img class="carousel-item" src="images/image2.jpg">
+  <img class="carousel-item" src="images/image3.jpg">
+   <img class="carousel-item" src="images/image4.jpg">
+    <img class="carousel-item" src="images/image5.jpg">
+    <!-- Add more slides as needed -->
+</div>
+    </section>
+
+
+    <section class="main">
+        <div class="forms-container">
+            <p class="title">eFeza super-agent</p>
+            <div class="separator"></div>
+            <p class="welcome-message">Veullez entrer toutes les informations s'il vous plaits</p>
+
+            <div class="forms-form" id="forms">
+                <div class="form-control">
+                    <input type="text" placeholder="Nom et prenom" id="nom" maxlength="27" required autofocus>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-control">
+                    <input type="number" placeholder="Code super agent" id="code" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="form-control">
+                    <input type="tel" placeholder="Telephone" id="tel" required>
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="form-control">
+                    <input type="file" placeholder="photo" id="photo" accept="image/jpeg, image/png" required>
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="form-control" id="image-preview">
+                </div>
+                <button class="submit" onclick="openPopup()">Creer un badge</button>
+            </div>
+        </div>
+    </section>
+
+  </div>
+ <div class="popup" id="popup">
+  <div class="container">
+    <div class="head"> <button id="btclose" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button> </div>
+   <div class="subcontainer">
+    <div class="result"><i class="fas fa-check"></i></div>
+      <h6>Votre badge est pret</h6>
+   <div class="cardContainer" id="cardContainer">
+    <div class="containing" id="containing">
+        <div class="card" id="card">
+      <div class="cardTop" id="cardTop">
+        <div class="imgcontainer">
+          <img id="bphoto" src="images/user.png">
+        </div>
+       <div class="cardbody">
+        <div class="cardDesc">
+          <p id="bcode">Code: 23875</p>
+         <p id="bname">Full name</p>
+         <p id="desc">Super agent</p>
+          <p id="btel">61000000</p>
+         <div class="qrBox">
+           <img src="" id="qrImage">
+
+         </div> 
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+     
+   </div>
+    <div class="buttondiv">
+     <button id="btDownload"><i class="fas fa-image"></i>Telecharger image</button>
+     <button id="btPrint" onclick="printPdf()"><i class="fas fa-file-pdf"></i>Telecharger pdf</button>
+   </div>
+   </div>
+  
+  </div>
+ </div>
+ <script src="dom-to-image.js"></script>  
+ <script src="jscript.js"></script>   
+</body>
+</html>
