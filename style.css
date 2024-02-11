@@ -139,8 +139,8 @@ section.side {
 .carousel {
     display: flex;
     overflow: hidden;
-    width: 40%;
-    height: 70vh;
+   width: 300px;
+    height: 500px;
     border-radius: 10px;
    rotate: -10deg;
    box-shadow: 5px 5px 3px #ccc;
