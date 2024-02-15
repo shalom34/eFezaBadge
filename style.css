@@ -1,8 +1,13 @@
+@font-face{
+  font-family: myfont;
+  src: url("Montserrat.ttf");
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: myfont, sans-serif;
     color: #303433;
 }
 
@@ -45,9 +50,10 @@ justify-content: center;
 }
 .popup .container{
   width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 2%;
+  margin-top: 0.5%;
 }
 .popup .container #btclose{
   float: right;
@@ -71,9 +77,11 @@ font-size: 1.5em;
 .popup .subcontainer{
   background: whitesmoke;
   width: 100%;
-  min-height: 70vh;
+  height: 80%;
   padding: 0.5em;
   border-radius: 7px;
+  display: flex;
+  flex-direction: column;
 }
 .popup .subcontainer h6{
   font-size: 1.2em;
@@ -81,11 +89,30 @@ font-size: 1.5em;
   text-align: center;
 }
 .popup .cardContainer{
-width: 100%;
+overflow-y: scroll;
+overflow-x: hidden;
 padding-bottom: 1em;
-display: flex;
-justify-content: center;
+margin-bottom: 20px;
+scroll-behavior: smooth;
+justify-self: center;
 
+}
+.cardContainer::-webkit-scrollbar{
+  width: 0.6vw;
+  background-color: transparent;
+}
+.cardContainer::-webkit-scrollbar-track{
+  box-shadow: inset0 0 5px grey;
+  border-radius: 10px;
+  transition: .3s;
+}
+.cardContainer::-webkit-scrollbar-thumb{
+  background: linear-gradient(to bottom, transparent,lightgrey);
+  border-radius: 10px;
+}
+.cardContainer::-webkit-scrollbar-thumb:hover{
+  background: #ccc;
+  border-radius: 10px;
 }
 section {
     display: flex;
@@ -139,13 +166,14 @@ section.side {
 .carousel {
     display: flex;
     overflow: hidden;
-   width: 300px;
+    width: 300px;
     height: 500px;
     border-radius: 10px;
    rotate: -10deg;
    box-shadow: 5px 5px 3px #ccc;
     /* Set width and height as needed */
 }
+
 
 .carousel-item {
     flex: 0 0 100%;
@@ -157,7 +185,29 @@ section.side {
 .carousel-item img{
   width: 100%;
 }
+.carousel1 {
+    display: flex;
+    overflow: hidden;
+   width: 100%;
+    height: 98%;
+    background: whitesmoke;
+    margin: 1em;
+}
+#popup1{
+    display: none;
+}
 
+.carousel-item1 {
+    flex: 0 0 100%;
+    transition: transform 0.5s ease;
+    width: 20%;
+    height: 100%;
+}
+.carousel-item1 img{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
 .forms-container {
     max-width: 450px;
     padding: 24px;
@@ -188,8 +238,6 @@ background: linear-gradient(90deg, rgba(0,101,148,1) 70%, rgba(150,165,175,1) 70
 .welcome-message {
     text-align: center;
     font-size: 1.1em;
-    line-height: 28px;
-    margin-bottom: 30px;
     color: #696969;
 }
 
@@ -202,7 +250,24 @@ background: linear-gradient(90deg, rgba(0,101,148,1) 70%, rgba(150,165,175,1) 70
 .form-control {
     width: 100%;
     position: relative;
-    margin-bottom: 24px;
+    margin-top: 24px;
+}
+.forms-form span{
+font-size: 0.8em;
+color: tomato;
+animation: .3s openErrors linear;
+display: none;
+}
+@keyframes openErrors{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 
 input,
@@ -254,85 +319,153 @@ button.submit {
     transition: .3s;
     border-radius: 20px;
     align-self: center;
-    font-size: 0.7em;
+    font-size: 1em;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+      margin-top: 24px;
     gap: 0.2em;
 }
+.popup .expcont{
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+.popup .expcont button{
+  margin-right: 30%;
+  cursor: pointer;
+  padding: 0.3em;
+  background: #ccc;
+  border-radius: 3px;
+}
+#popup1 img{
+width: 100%;
+height: 100%;
+object-fit: contain;
+}
+#popup1 button{
+  margin-top: 1%;
+  background: transparent;
+  margin-left: 1.5em;
+ 
+}
+#popup1 button i{
+  color: white;
+   font-size: 1.5em;
+}
 .popup .card{
-  width: 500px;
-  height: 200px;
-  margin: 5px;
-  background: url(back.png) no-repeat;
+  width: 300px;
+  min-height: 500px;
+  margin-bottom: 10px;
+  background: url(back1.png) no-repeat;
   background-size: 100% 100%;
-  border-radius: 10px;
-
+font-family:myfont, sans-serif;
 
 }
 
 .popup .containing{
  padding: 10px;
- width: 530px;
  display: flex;
  align-items: center;
  justify-content: center;
+ flex-direction: column;
 }
 
 .popup .card .cardTop{
-  width: 500px;
-  height: 200px;
  border-radius: 20px;
  display: flex;
  justify-content: center;
+ flex-direction: column;
 }
 .cardTop .imgcontainer{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 20px;
-  width: 140px;
+  margin-top: 0.9em;
 }
 .cardTop .imgcontainer img{
-  width: 95px;
-  height: 95px;
+  width: 8em;
+  height: 8em;
+  margin-left: 0.9em;
+  padding: 0.130em;
   border-radius: 50%;
-  margin-left: 3em;
-  border: 3px solid #f3f3f3;
-  padding: 2px;
+  border: 1.5px solid white;
 }
 
 .cardTop .cardbody{
   display: flex;
   flex-direction: column;
- justify-content: center;
- padding-top: 2em;
- color: #f3f3f3;
-  width: 70%;
+ align-items: center;
+ padding-top: 4em;
+ width: 100%;
+ color: #006594;
+}
+.cardTop .cardbody .cardDesc{
+  width: 100%;
 }
 .cardTop .cardbody p{
-  color: #fff;
+  color: #006594;
+  word-wrap:break-word;
+}
+.cardTop .namecont{
+background: #006594;
+width: 100%;
+height: auto;
+justify-self: left;
+margin-top: 0.7em;
 }
 .cardbody #bname{
-  font-size: 1.2em;
-  font-weight: bold;
-  padding: 0.3em 0;
-  border-bottom: 2px solid white;
-  width: auto;
-  margin-bottom: 2px;
-}
-.cardbody #bcode{
-  font-size: 1em;
+  font-size: 1.15em;
+  width: 100%;
   font-weight: 600;
+  padding: 0.5em;
   text-align: center;
-  color: whitesmoke;
+  max-lines: 2;
+  color: #fff;
+  margin-bottom: 2px;
+  
 }
 
+.cardbody #bcode{
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: right;
+  margin-right: 1em;
+  margin-top: -1em;
+  color: #006594;
+}
+.cardbody #desc{
+  font-size: 1em;
+  letter-spacing: 2px;
+  word-spacing: 4px;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  text-shadow: 1px 1px 2px #006594;
+}
+.cardbody .telcont{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+.cardbody .telcont img{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 50%;
+ background: #083553;
+ padding: 0.5em;
+ border: 1px solid #ccc;
+ margin-left: 0.4em;
+
+}
+.cardbody .telcont p{
+  align-self: center;
+  font-size: 1.1em;
+  font-weight: 600;
+}
 .qrBox{
   float: right;
-  margin-right: 2em;
-  margin-top:0.3em;
+  margin-right: 1.5em;
+  margin-top:1em;
 }
 #qrImage{
   border: 2px solid #ccc;
@@ -359,6 +492,56 @@ button.submit {
   width: 1.7em;
   height: 1.7em;
   animation: spin 1s linear infinite;
+  display: block;
+}
+.pubcont{
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  margin-top: -3.6em;
+  margin-bottom: 1em;
+  margin-right: 1.5em;
+  display: none;
+}
+.pubcont .button{
+background: white;
+padding: 0.7em 1.5em;
+border-radius: 6px;
+font-size: 0.8em;
+color: #006594;
+font-weight: 600;
+box-shadow: 0px 0px 8px #ccc;
+cursor: pointer;
+}
+.pubcont .ticket{
+  margin-top: -1em;
+  rotate: 15deg;
+  animation: rotate 4s linear infinite;
+}
+@keyframes rotate {
+        0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.1;
+  }
+      }
+.pubcont span{
+  background: red;
+  color: white;
+  margin-left: -1.5em;
+  font-size: 0.7em;
+  border-radius: 5px;
+  padding: 0.5em;
+  
+}
+@keyframes fill {
+ 
 }
 
 @keyframes spin {
@@ -371,6 +554,46 @@ button.submit {
   padding: 3px 0px;
   font-size: 1.2em;
 }
+
+.little_footer{
+  margin-top: 4em;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+}
+.little_footer button{
+  background: whitesmoke;
+  color: #449ed7;
+  max-width: 80%;
+  padding: 1em;
+  font-size: 0.9em;
+  font-weight: 600;
+  animation: 3s animate linear infinite;
+  cursor: pointer;
+}
+@keyframes animate{
+  0%{
+    box-shadow: 0px 0px 0px #ccc; 
+  }
+  50%{
+    box-shadow: 1px 1px 7px #ccc; 
+  }
+  80%{
+    box-shadow: 1px 1px 15px #ccc; 
+  }
+  100%{
+    box-shadow: 1px 1px 15px #ccc; 
+  }
+}
+.little_footer button i{
+margin-left: 0.2em;
+font-size: 1.2em;
+color:  #083553;
+}
+
+
 button.submit:hover, .buttondiv button:hover {
     background: #083553;
 }
@@ -391,8 +614,17 @@ button.submit:hover, .buttondiv button:hover {
     .side,.carousel {
         display: none;
     }
+    #popup1 .carousel{
+      display: flex;
+    }
+    .popup .subcontainer{
+      height: 91%;
+    }
+    /*.card{
+      width: 100%;
+      margin: 1em;
+    }*/
     .popup .cardContainer{
-      display: block;
       overflow-x: scroll;
     }
    .popup .container #btclose{
@@ -403,5 +635,10 @@ button.submit:hover, .buttondiv button:hover {
      .popup .container #btclose i{
      font-size: 1em;
     }
-
+    .pubcont{
+      display: flex;
+    }
+    .popup .expcont button{
+margin-right: 0.3em;
+    }
 }
