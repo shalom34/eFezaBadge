@@ -36,6 +36,7 @@ justify-content: center;
     animation-duration: 500ms;
     animation-fill-mode: forwards;
     padding-bottom: 2em;
+  display:none;
 }
 @keyframes popupKeyFrame{
   0%{
