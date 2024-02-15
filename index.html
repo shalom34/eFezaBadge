@@ -31,38 +31,49 @@
             <p class="title">eFeza super-agent</p>
             <div class="separator"></div>
             <p class="welcome-message">Veullez entrer toutes les informations s'il vous plaits</p>
-
             <div class="forms-form" id="forms">
                 <div class="form-control">
-                    <input type="text" placeholder="Nom et prenom" id="nom" maxlength="27" required autofocus>
+                    <input type="text" placeholder="Nom et prenom" id="nom" required autofocus>
                     <i class="fas fa-user"></i>
                 </div>
+                <span id="snom"></span>
                 <div class="form-control">
                     <input type="number" placeholder="Code super agent" id="code" required>
                     <i class="fas fa-lock"></i>
                 </div>
+                <span id="scode"></span>
                 <div class="form-control">
                     <input type="tel" placeholder="Telephone" id="tel" required>
                     <i class="fas fa-phone"></i>
                 </div>
+                <span id="sphone"></span>
                 <div class="form-control">
                     <input type="file" placeholder="photo" id="photo" accept="image/jpeg, image/png" required>
                     <i class="fas fa-image"></i>
                 </div>
+                <span id="sphoto"></span>
                 <div class="form-control" id="image-preview">
                 </div>
-                <button class="submit" onclick="openPopup()">Creer un badge</button>
+                <button class="submit" onclick="openPopup()"><div class="loader" id="loader"></div>Creer un badge</button>
+                <div class="little_footer"><button onclick="redirect()">Telecharger l'application sur<i class="fab fa-google-play" id="app"></i></button></div>
             </div>
-        </div>
-    </section>
 
+        </div>
+
+    </section>
+    
   </div>
- <div class="popup" id="popup" style="display:none;">
+
+ <div class="popup" id="popup">
   <div class="container">
     <div class="head"> <button id="btclose" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button> </div>
    <div class="subcontainer">
-    <div class="result"><i class="fas fa-check"></i></div>
-      <h6>Votre badge est pret</h6>
+    <div class="top">
+       <div class="result"><i class="fas fa-check"></i></div>
+      <h6>Votre badge est pret</h6>  
+    </div>
+    <div class="expcont"><button onclick="openPreview()"><i class="fa-solid fa-expand"></i></button></div>
+   
    <div class="cardContainer" id="cardContainer">
     <div class="containing" id="containing">
         <div class="card" id="card">
@@ -72,10 +83,16 @@
         </div>
        <div class="cardbody">
         <div class="cardDesc">
+
           <p id="bcode">Code: 23875</p>
-         <p id="bname">Full name</p>
+          <div class="namecont">
+            <p id="bname">Full name</p>   
+          </div>
          <p id="desc">Super agent</p>
-          <p id="btel">61000000</p>
+         <div class="telcont"><img src="phone1.png">
+          <p id="btel">61000000</p>   
+         </div>
+          
          <div class="qrBox">
            <img src="" id="qrImage">
 
@@ -95,7 +112,12 @@
   
   </div>
  </div>
- <script src="dom-to-image.js"></script>  
+ <div class="popup" id="popup1">
+ <button onclick="closePreview()"><i class="fa-solid fa-arrow-left"></i></button> 
+ <img src="" id="imgPopPreview">
+ </div>
+
+ <script src="dom-to-image.js"></script> 
  <script src="jscript.js"></script>   
 </body>
 </html>
